@@ -7,7 +7,7 @@ So I can order a bagel when I want to
 
 | Object      | Properties                                        | Messages         |Output         |
 | ----------- | --------------------------------------------------| ---------------- | --------------|
-| Item        | Item @String, itemId @Integer, itemPrice @Integer | itemToAdd()      | item @string  |
+| Item        | itemName @String, itemId @Integer, itemPrice @Integer | itemToAdd()      | item @string  |
 | Basket      | @Array[@Items]                                    | addItemToBasket()| @Array[@Items]|
 
 
@@ -20,7 +20,7 @@ So that I can change my order
 
 | Object      | Properties                                        | Messages              |Output         |
 | ----------- | --------------------------------------------------| --------------------- | --------------|
-| Item        | Item @string, itemId @Integer, itemPrice @Integer | itemToRemove()        | item @string  |
+| Item        | itemName @string, itemId @Integer, itemPrice @Integer | itemToRemove()        | item @string  |
 | Basket      | @Array[@Items]                                    | removeItemFromBasket()| @Array[@Items]|
 
 
@@ -35,7 +35,7 @@ So that I can not overfill my small bagel basket
 
 | Object      | Properties                                        | Messages                         |Output                        |
 | ----------- | --------------------------------------------------| -------------------------------- | -----------------------------|
-| Item        | Item @string, itemId @Integer, itemPrice @Integer | itemToAdd()                      | item @string                 |
+| Item        | itemName @string, itemId @Integer, itemPrice @Integer | itemToAdd()                      | item @string                 |
 | Basket      | @Array[@Items], maxSize @Integer                  | addItemToBasket(),isBasketFull() | @Array[@Items], @String      |
 
 
@@ -46,8 +46,8 @@ So that I can record more sales
 
 | Object  | Properties                                            | Messages                                             |Output                                 |
 | --------| ------------------------------------------------------| ---------------------------------------------------- | --------------------------------------|
-| Item    | Item @string, itemId @Integer, itemPrice @Integer     | itemToAdd()                                          | item @string                          |
-| Basket  | @Array[@Items], maxSize @Integer, increaseBy @Integer | addItemToBasket(),isBasketFull(), increaseCapacity() | @Array[@Items],Boolean, @String (should be removed)      |
+| Item    | itemName @string, itemId @Integer, itemPrice @Integer     | itemToAdd()                                      | item @string                          |
+| Basket  | @Array[@Items], maxSize @Integer, increaseBy @Integer | addItemToBasket(),isBasketFull(), increaseCapacity() | @Array[@Items],Boolean, Boolean       |
 
 
 
@@ -70,7 +70,7 @@ So that I can know how much my bagels are,
 | Object      | Properties                                            | Messages                         |Output                        |
 | ----------- | ------------------------------------------------------| ---------------------------------| -----------------------------|
 | Item        | Item @string, itemId @Integer, itemPrice @Integer     | itemToAdd(), checkPrice()        | item @string                 |
-| Basket      | @Array[@Items]                                        | checkPrice()(remove)             | @Array[@Items]               |
+| Basket      | @Array[@Items]                                        |                                  |                              |
 
 
 
@@ -81,7 +81,7 @@ As a member of the public,
 When I go to checkout I'd like to know the total sum of the bagels in my basket
 So that I can prepare to pay
 
-| Object      | Properties                                            | Messages                |Output                  |
-| ----------- | ------------------------------------------------------| ------------------------| -----------------------|
+| Object      | Properties                                       | Messages                |Output                  |
+| ----------- | -------------------------------------------------| ------------------------| -----------------------|
 | Item        | Item @string, itemId @Integer, itemPrice @Integer     | item()                  | item @string           |
 | Basket      | @Array[@Items]                                        | calculateTotal()        | @Integer               |
